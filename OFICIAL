@@ -1,0 +1,299 @@
+-- Load Orion Library
+local OrionLib = loadstring(game:HttpGet('https://raw.githubusercontent.com/hakaiofc/Base/main/HUBORION'))()
+
+-- ANTI AFK
+pcall(function()
+    local VirtualUser = game:service'VirtualUser'
+    game:service'Players'.LocalPlayer.Idled:connect(function()
+        VirtualUser:CaptureController()
+        VirtualUser:ClickButton2(Vector2.new())
+    end)
+end)
+
+-- GLOBALS
+local LP = game.Players.LocalPlayer
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+_G.AutoDP = false
+_G.AutoStamina = false
+_G.AutoStamina2 = false
+_G.AutoDumbell = false
+
+-- Função AutoPushUp ()
+function AutoPushUp()
+    local lutero = ReplicatedStorage:FindFirstChild("Lutero")
+    if not lutero then return end
+    local args = {"GiveHealthCuzPro", 2, 1}
+
+    local function executePushUp()
+        while _G.AutoDP do
+            for i = 1, 1 do
+                lutero:FireServer(unpack(args))
+                task.wait(0.0049)
+            end
+        end
+    end
+
+    for i = 1, 3 do
+        task.spawn(executePushUp)
+    end
+end
+
+-- Função AutoStamina ()
+function AutoStamina()
+    local staminaEvent = ReplicatedStorage:FindFirstChild("AddStaminaEvent")
+    if not staminaEvent then return end
+
+    local function executeStamina()
+        while _G.AutoStamina do
+            for i = 1, 18 do 
+                staminaEvent:FireServer()
+                staminaEvent:FireServer()
+                staminaEvent:FireServer()
+                staminaEvent:FireServer()
+                staminaEvent:FireServer()
+                staminaEvent:FireServer()
+                staminaEvent:FireServer()
+                staminaEvent:FireServer()
+                task.wait(0.003)
+            end
+        end
+    end
+
+    for i = 1, 19 do
+        task.spawn(executeStamina)
+    end
+end
+
+-- Função AutoStamina2 ()
+function AutoStamina2()
+    local staminaEvent = ReplicatedStorage:FindFirstChild("AddStaminaEvent")
+    if not staminaEvent then return end
+
+    local function executeStamina2()
+        while _G.AutoStamina2 do
+            for i = 1, 12 do 
+                staminaEvent:FireServer()
+                staminaEvent:FireServer()
+                staminaEvent:FireServer()
+                task.wait(0.0049)
+            end
+        end
+    end
+
+    for i = 1, 14 do 
+        task.spawn(executeStamina2)
+    end
+end
+
+-- Função AutoStamina3 ()
+function AutoStamina3()
+    local staminaEvent = ReplicatedStorage:FindFirstChild("AddStaminaEvent")
+    if not staminaEvent then return end
+
+    local function executeStamina3()
+        while _G.AutoStamina3 do
+            for i = 1, 12 do 
+                staminaEvent:FireServer()
+                staminaEvent:FireServer()
+                staminaEvent:FireServer()
+                task.wait(0.0049)
+            end
+        end
+    end
+
+    for i = 1, 14 do 
+        task.spawn(executeStamina3)
+    end
+end
+
+-- Função AutoStamina4 ()
+function AutoStamina4()
+    local staminaEvent = ReplicatedStorage:FindFirstChild("AddStaminaEvent")
+    if not staminaEvent then return end
+
+    local function executeStamina4()
+        while _G.AutoStamina4 do
+            for i = 1, 25 do 
+                staminaEvent:FireServer()
+                staminaEvent:FireServer()
+                staminaEvent:FireServer()
+                staminaEvent:FireServer()
+                staminaEvent:FireServer()
+                staminaEvent:FireServer()
+                staminaEvent:FireServer()
+                staminaEvent:FireServer()
+                task.wait(0.003)
+            end
+        end
+    end
+
+    for i = 1, 26 do
+        task.spawn(executeStamina4)
+    end
+end
+
+-- Função AutoStamina5 ()
+function AutoStamina5()
+    local staminaEvent = ReplicatedStorage:FindFirstChild("AddStaminaEvent")
+    if not staminaEvent then return end
+
+    local function executeStamina5()
+        while _G.AutoStamina5 do
+            for i = 1, 67 do 
+                staminaEvent:FireServer()
+                staminaEvent:FireServer()
+                staminaEvent:FireServer()
+                staminaEvent:FireServer()
+                staminaEvent:FireServer()
+                staminaEvent:FireServer()
+                staminaEvent:FireServer()
+                staminaEvent:FireServer()
+                task.wait()
+            end
+        end
+    end
+
+    for i = 1, 88 do
+        task.spawn(executeStamina5)
+    end
+end
+
+-- Função AutoDumbell ()
+function AutoDumbell()
+    local function executeDumbell()
+        while _G.AutoDumbell do
+            for i = 1, 1 do  -- Aumento na quantidade de repetições por ciclo
+                local dumbell = LP.Character and LP.Character:FindFirstChild("Dumbell")
+                if dumbell then
+                    local dumbellEvent = dumbell:FindFirstChild("Event")
+                    if dumbellEvent then
+                        dumbellEvent:FireServer()
+                    end
+                end
+                task.wait(0.0049)
+            end
+        end
+    end
+
+    for i = 1, 3 do 
+        task.spawn(executeDumbell)
+    end
+end
+
+-- Criando Interface
+local Window = OrionLib:MakeWindow({
+    Name = "Arsenal HUB",
+    HidePremium = false,
+    SaveConfig = true,
+    ConfigFolder = "OrionTest",
+    IntroEnabled = false
+})
+
+local HubExclusivoTab = Window:MakeTab({
+    Name = "Menu Exclusivo",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+
+HubExclusivoTab:AddSection({ Name = "Auto-Farm" })
+
+HubExclusivoTab:AddToggle({
+    Name = "Auto PushUp",
+    Default = false,
+    Callback = function(Value)
+        _G.AutoDP = Value
+        if Value then AutoPushUp() end
+    end
+})
+
+HubExclusivoTab:AddToggle({
+    Name = "Auto Stamina",
+    Default = false,
+    Callback = function(Value)
+        _G.AutoStamina = Value
+        if Value then AutoStamina() end
+    end
+})
+
+HubExclusivoTab:AddToggle({
+    Name = "Auto Stamina2",
+    Default = false,
+    Callback = function(Value)
+        _G.AutoStamina2 = Value
+        if Value then AutoStamina2() end
+    end
+})
+
+HubExclusivoTab:AddToggle({
+    Name = "Auto Dumbell",
+    Default = false,
+    Callback = function(Value)
+        _G.AutoDumbell = Value
+        if Value then AutoDumbell() end
+    end
+})
+
+local StaminasTab = Window:MakeTab({
+    Name = "Staminas+",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+
+StaminasTab:AddToggle({
+    Name = "Auto Stamina1",
+    Default = false,
+    Callback = function(Value)
+        _G.AutoStamina3 = Value
+        if Value then AutoStamina3() end
+    end
+})
+
+StaminasTab:AddToggle({
+    Name = "Auto Stamina2",
+    Default = false,
+    Callback = function(Value)
+        _G.AutoStamina4 = Value
+        if Value then AutoStamina4() end
+    end
+})
+
+StaminasTab:AddToggle({
+    Name = "Auto Stamina3",
+    Default = false,
+    Callback = function(Value)
+        _G.AutoStamina5 = Value
+        if Value then AutoStamina5() end
+    end
+})
+
+local InfiniteYieldTab = Window:MakeTab({
+    Name = "FUNÇÕES A+",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+
+InfiniteYieldTab:AddSection({ Name = "FUNÇÕES ADICIONAIS" })
+
+InfiniteYieldTab:AddButton({
+    Name = "InfiniteYield",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/hakaiofc/EdgeIYinfiniteyield/main/mastersource'))()
+    end
+})
+
+InfiniteYieldTab:AddButton({
+    Name = "OPSTAMINA-Farme ⚙️",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/hakaiofc/STAMINA2/refs/heads/main/LUTERO'))()
+        wait()
+    end
+})
+
+InfiniteYieldTab:AddButton({
+    Name = "STAMINA INSTANTANEA ⚙️",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/hakaiofc/STAMINA3/refs/heads/main/LUTERO'))()
+        wait()
+    end
+})
