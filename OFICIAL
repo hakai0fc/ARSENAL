@@ -198,6 +198,15 @@ local HubExclusivoTab = Window:MakeTab({
 
 HubExclusivoTab:AddSection({ Name = "Auto-Farm" })
 
+HubExclusivoTab:AddButton({
+    Name = "Reset Por Click",
+    Callback = function()
+        local humanoid = game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
+        if humanoid then
+            humanoid.Health = 0  -- Matar o personagem para forçar o respawn
+        end
+    end
+})
 HubExclusivoTab:AddToggle({
     Name = "Auto PushUp",
     Default = false,
