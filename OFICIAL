@@ -161,22 +161,32 @@ end
 
 -- Função AutoDumbell ()
 function AutoDumbell()
+    local LP = game.Players.LocalPlayer
+    local Backpack = LP:WaitForChild("Backpack")
+    local Character = LP.Character or LP.CharacterAdded:Wait()
     local function executeDumbell()
         while _G.AutoDumbell do
-            for i = 1, 1 do  -- Aumento na quantidade de repetições por ciclo
-                local dumbell = LP.Character and LP.Character:FindFirstChild("Dumbell")
-                if dumbell then
-                    local dumbellEvent = dumbell:FindFirstChild("Event")
-                    if dumbellEvent then
-                        dumbellEvent:FireServer()
+            local dumbells = {}
+            for _, container in ipairs({Character, Backpack}) do
+                for _, tool in ipairs(container:GetChildren()) do
+                    if tool:IsA("Tool") and tool.Name == "Dumbell" then
+                        table.insert(dumbells, tool)
                     end
                 end
-                task.wait(0.0049)
             end
+            for _, dumbell in ipairs(dumbells) do
+                local event = dumbell:FindFirstChildWhichIsA("RemoteEvent")
+                if event then
+                    for i = 1, 2 do
+                        event:FireServer()
+                        event:FireServer()
+                    end
+                end
+            end
+            task.wait(0.000049)
         end
     end
-
-    for i = 1, 3 do 
+    for i = 1, 2 do
         task.spawn(executeDumbell)
     end
 end
