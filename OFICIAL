@@ -39,14 +39,13 @@ function AutoPushUp()
     end
 end
 
--- Função AutoStamina ()
+--Função AutoStamina
 function AutoStamina()
     local staminaEvent = ReplicatedStorage:FindFirstChild("AddStaminaEvent")
     if not staminaEvent then return end
-
     local function executeStamina()
         while _G.AutoStamina do
-            for i = 1, 18 do 
+            for i = 1, 12 do 
                 staminaEvent:FireServer()
                 staminaEvent:FireServer()
                 staminaEvent:FireServer()
@@ -55,12 +54,11 @@ function AutoStamina()
                 staminaEvent:FireServer()
                 staminaEvent:FireServer()
                 staminaEvent:FireServer()
-                task.wait(0.003)
+                task.wait(0.00049)
             end
         end
     end
-
-    for i = 1, 19 do
+    for i = 1, 14 do
         task.spawn(executeStamina)
     end
 end
