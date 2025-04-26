@@ -112,7 +112,7 @@ function AutoStamina4()
 
     local function executeStamina4()
         while _G.AutoStamina4 do
-            for i = 1, 25 do 
+            for i = 1, 12 do 
                 staminaEvent:FireServer()
                 staminaEvent:FireServer()
                 staminaEvent:FireServer()
@@ -126,7 +126,7 @@ function AutoStamina4()
         end
     end
 
-    for i = 1, 26 do
+    for i = 1, 14 do
         task.spawn(executeStamina4)
     end
 end
@@ -138,7 +138,7 @@ function AutoStamina5()
 
     local function executeStamina5()
         while _G.AutoStamina5 do
-            for i = 1, 67 do 
+            for i = 1, 12 do 
                 staminaEvent:FireServer()
                 staminaEvent:FireServer()
                 staminaEvent:FireServer()
@@ -152,7 +152,7 @@ function AutoStamina5()
         end
     end
 
-    for i = 1, 88 do
+    for i = 1, 14 do
         task.spawn(executeStamina5)
     end
 end
@@ -300,7 +300,7 @@ InfiniteYieldTab:AddButton({
 })
 
 InfiniteYieldTab:AddButton({
-    Name = "OPSTAMINA-Farme ⚙️",
+    Name = "OPSTAMINA-Farme",
     Callback = function()
         loadstring(game:HttpGet('https://raw.githubusercontent.com/hakaiofc/STAMINA2/refs/heads/main/LUTERO'))()
         wait()
@@ -308,7 +308,7 @@ InfiniteYieldTab:AddButton({
 })
 
 InfiniteYieldTab:AddButton({
-    Name = "STAMINA INSTANTANEA ⚙️",
+    Name = "STAMINA INSTANTANEA",
     Callback = function()
         loadstring(game:HttpGet('https://raw.githubusercontent.com/hakaiofc/STAMINA3/refs/heads/main/LUTERO'))()
         wait()
