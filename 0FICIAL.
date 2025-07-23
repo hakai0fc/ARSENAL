@@ -295,7 +295,7 @@ InfiniteYieldTab:AddSection({ Name = "FUNÇÕES ADICIONAIS" })
 InfiniteYieldTab:AddButton({
     Name = "InfiniteYield",
     Callback = function()
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/hakaiofc/EdgeIYinfiniteyield/main/mastersource'))()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/hakai0fc/EdgeIY/blob/main/infiniteyield'))()
     end
 })
 
