@@ -34,7 +34,7 @@ function AutoPushUp()
         end
     end
 
-    for i = 1, 3 do
+    for i = 1, 2 do
         task.spawn(executePushUp)
     end
 end
