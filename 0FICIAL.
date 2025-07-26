@@ -54,7 +54,7 @@ function AutoStamina()
                 staminaEvent:FireServer()
                 staminaEvent:FireServer()
                 staminaEvent:FireServer()
-                task.wait(0.00049)
+                task.wait(0.000049)
             end
         end
     end
@@ -74,7 +74,7 @@ function AutoStamina2()
                 staminaEvent:FireServer()
                 staminaEvent:FireServer()
                 staminaEvent:FireServer()
-                task.wait(0.0049)
+                task.wait(0.00000000049)
             end
         end
     end
@@ -95,7 +95,7 @@ function AutoStamina3()
                 staminaEvent:FireServer()
                 staminaEvent:FireServer()
                 staminaEvent:FireServer()
-                task.wait(0.0049)
+                task.wait(0.00000000000049)
             end
         end
     end
@@ -121,7 +121,7 @@ function AutoStamina4()
                 staminaEvent:FireServer()
                 staminaEvent:FireServer()
                 staminaEvent:FireServer()
-                task.wait(0.003)
+                task.wait(0.000000000003)
             end
         end
     end
@@ -181,7 +181,7 @@ function AutoDumbell()
                     end
                 end
             end
-            task.wait(0.000049)
+            task.wait(0.0000000000049)
         end
     end
     for i = 1, 2 do
