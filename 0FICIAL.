@@ -29,12 +29,12 @@ function AutoPushUp()
         while _G.AutoDP do
             for i = 1, 1 do
                 lutero:FireServer(unpack(args))
-                task.wait(0.0049)
+                task.wait(0.00000049)
             end
         end
     end
 
-    for i = 1, 2 do
+    for i = 1, 1.1 do
         task.spawn(executePushUp)
     end
 end
